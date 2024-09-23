@@ -5,38 +5,39 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float moveSpeed = 5f;
-    public float jumpForce = 7f;
+    public float moveSpeed = 5f;  // Movement speed left and right
+    public float jumpForce = 5f;  // Force of the jump
     private Rigidbody rb;
-    private bool isGrounded;
+    private bool isGrounded = true;
 
-    private void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        // Get left and right movement input
+        float moveX = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // Move the character along the X-axis, while locking the Z-axis
-        Vector3 movement = new Vector3(horizontalInput * moveSpeed, rb.velocity.y, 0f);
+        // Apply movement
+        Vector3 movement = new Vector3(moveX, rb.velocity.y, 0);
         rb.velocity = movement;
 
-        // Jumping (assuming isGrounded is checked via collisions)
+        // Check for jump input and if the player is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;  // Temporarily set false until grounded again
+            isGrounded = false;  // Set grounded to false after jumping
         }
     }
 
-    // Simple ground check (adjust as needed)
+    // Check if the player is on the ground
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            isGrounded = true;  // Player is on the ground
         }
     }
 }
