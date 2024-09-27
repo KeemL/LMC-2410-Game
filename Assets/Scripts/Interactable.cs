@@ -9,6 +9,9 @@ public interface IInteractable
 
     Transform GetTransform();
 
+    //  void ReceiveItem(Item item);
+
     float InteractionRange { get; }
+
 }
 

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour, IInteractable
+public class Item : MonoBehaviour, IInteractable
 {
     public float InteractionRange => 1.5f;
 
     private bool isPlayerInRange = false;
+
+    private bool hasItem = false;
 
     //public valueSaver script;
 
@@ -45,21 +47,23 @@ public class Coin : MonoBehaviour, IInteractable
         }
     }
 
-    private void CollectCoin()
+    private void CollectItem()
     {
-        // Perform coin collection logic here
-        gameObject.SetActive(false); // Disable the coin GameObject
-        Debug.Log("collected coin");
+        // Perform Item collection logic here
+        gameObject.SetActive(false); // Disable the Item GameObject
+        hasItem = true;
+        Debug.Log("collected Item");
     }
 
     public void Interact(Transform interactorTransform)
     {
-        CollectCoin();
+        // if (interactorTransform.)
+        CollectItem();
     }
 
     public string GetInteractText()
     {
-        return "Collect Coin";
+        return "Collect Item";
     }
 
     public Transform GetTransform()

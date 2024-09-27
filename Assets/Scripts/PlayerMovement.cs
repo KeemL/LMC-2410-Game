@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded = true;
 
+    public Collider followerCollider;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Collider playerCollider = GetComponent<Collider>();
+        Physics.IgnoreCollision(playerCollider, followerCollider);
     }
 
     void Update()
@@ -38,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;  // Player is on the ground
+
         }
     }
 }

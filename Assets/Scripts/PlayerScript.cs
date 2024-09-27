@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+
+    public PlayerInventory playerInventory;
     //bool functionCalled = false;
     private void Update()
     {
@@ -13,7 +15,6 @@ public class PlayerScript : MonoBehaviour
             IInteractable interactable = GetInteractableObject();
             if (interactable != null)
             {
-                ;
                 interactable.Interact(transform);
             }
         }
@@ -21,7 +22,7 @@ public class PlayerScript : MonoBehaviour
 
     public IInteractable GetInteractableObject()
     {
-        float interactRange = 4f;
+        float interactRange = 5f;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
 
         List<IInteractable> interactableList = new List<IInteractable>();
