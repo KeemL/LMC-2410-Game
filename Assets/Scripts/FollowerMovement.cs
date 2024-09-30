@@ -40,6 +40,7 @@ public class FollowerMovement : MonoBehaviour
         {
             Debug.Log("current speed: 0");
             // Reset speed to 0 when the follower is within 3 units
+            acceleration = 0f;
             currentSpeed = 0f;
         }
     }
