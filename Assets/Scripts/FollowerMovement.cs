@@ -16,7 +16,7 @@ public class FollowerMovement : MonoBehaviour
         float distance = Vector3.Distance(PlayerObject.position, transform.position);
 
         // Only move the follower if they are more than 3 units away
-        if (distance > 3f && PlayerObject.position.x > transform.position.x)
+        if (distance > 3f)
         {
             // Get direction towards the player (ignore the Y-axis for 2D movement on XZ plane)
             Vector3 direction = (transform.position - PlayerObject.position).normalized;
@@ -29,11 +29,11 @@ public class FollowerMovement : MonoBehaviour
             currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
             // Move towards the player at the accelerated speed
-            transform.position += direction * currentSpeed * Time.deltaTime;
-            
-            Debug.Log("distance greater than 3f and player.x > my.x");
+            transform.position -= direction * currentSpeed * Time.deltaTime;
 
-            
+            //Debug.Log("distance greater than 3f and player.x > my.x");
+
+
 
         }
         else

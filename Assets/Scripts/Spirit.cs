@@ -2,11 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spirit : MonoBehaviour
+public class Spirit : MonoBehaviour, IInteractable
 {
-    public void Interact(Transform player)
+
+    public static bool gotKey = false;
+
+    [SerializeField] private GameObject containerGameObject;
+
+    public float InteractionRange => 1.5f;
+
+    void Start()
     {
-        Debug.Log("Spirit: Hello!");
+        gameObject.SetActive(true);
+        containerGameObject.SetActive(false);
+    }
+    public void ReceiveItem()
+    {
+        gotKey = true;
+        //Debug.Log($"Spirit received: {item}");
+        // You can add custom logic here, like a response or a reward
+    }
+
+    public void speakToSpirit()
+    {
+        containerGameObject.SetActive(true);
+    }
+
+    public void Interact(Transform interactorTransform)
+    {
+        ReceiveItem();
+        speakToSpirit();
     }
 
     public Transform GetTransform()
@@ -19,9 +44,9 @@ public class Spirit : MonoBehaviour
         return "Talk to Spirit";
     }
 
-    public void ReceiveItem(string item)
-    {
-        Debug.Log($"Spirit received: {item}");
-        // You can add custom logic here, like a response or a reward
-    }
+
+
+
+
+
 }

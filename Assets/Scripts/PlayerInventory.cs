@@ -6,6 +6,8 @@ public class PlayerInventory : MonoBehaviour
 {
     public string itemInInventory = null; // Store the name of an item
 
+    public valueSaver valueSaver;
+
     public bool HasItem()
     {
         return itemInInventory != null;
