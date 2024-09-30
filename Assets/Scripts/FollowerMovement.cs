@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class FollowerMovement : MonoBehaviour
 {
-    public Transform PlayerObject; //Transform is object
-    public float speed = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform PlayerObject; // Reference to the player
+    public float maxSpeed = 10f; // Maximum speed the follower can reach
+    public float acceleration = 2f; // Acceleration rate
+    private float currentSpeed = 0f; // The current speed starts at zero
 
     // Update is called once per frame
     void Update()
     {
+        // Calculate the distance between the player and the follower
         float distance = Vector3.Distance(PlayerObject.position, transform.position);
+
         // Only move the follower if they are more than 3 units away
         if (distance > 3f)
         {
@@ -35,8 +34,13 @@ public class FollowerMovement : MonoBehaviour
             //Debug.Log("distance greater than 3f and player.x > my.x");
 
 
-            transform.position += direction * speed * Time.deltaTime;
+
+        }
+        else
+        {
+            Debug.Log("current speed: 0");
+            // Reset speed to 0 when the follower is within 3 units
+            currentSpeed = 0f;
         }
     }
 }
-

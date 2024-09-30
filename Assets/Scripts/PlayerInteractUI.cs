@@ -34,13 +34,6 @@ public class PlayerInteractUI : MonoBehaviour
         }
     }
 
-    // Add a method to display dialogue
-    public void ShowDialogue(string message)
-    {
-        // Create a dialogue UI element, or use an existing one
-        interactTextMeshProUGUI.text = message; // or use a separate TextMeshPro for dialogue
-    }
-
     private void Hide()
     {
         containerGameObject.SetActive(false);
