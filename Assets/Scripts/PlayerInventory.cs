@@ -1,26 +1,27 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<Item> items = new List<Item>();
+    public string itemInInventory = null; // Store the name of an item
 
     public valueSaver valueSaver;
 
     public bool HasItem()
     {
-        items.Add(item);
+        return itemInInventory != null;
     }
 
-    public void RemoveItem(Item item)
+    public string GiveItem()
     {
-        items.Remove(item);
+        string item = itemInInventory;
+        itemInInventory = null; // Remove item from inventory
+        return item;
     }
 
-    public bool HasItem(Item item)
+    public void AddItem(string newItem)
     {
-        return items.Contains(item);
+        itemInInventory = newItem;
     }
-
-    // Additional inventory logic can be added here
 }
