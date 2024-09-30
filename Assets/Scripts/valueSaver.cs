@@ -13,7 +13,7 @@ public class valueSaver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        containerGameObject.SetActive(false);
+
         tmpText.text = "go away scrub";
     }
 

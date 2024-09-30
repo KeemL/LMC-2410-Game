@@ -19,7 +19,7 @@ public class FollowerMovement : MonoBehaviour
         if (distance > 3f)
         {
             // Get direction towards the player (ignore the Y-axis for 2D movement on XZ plane)
-            Vector3 direction = (transform.position - PlayerObject.position).normalized;
+            Vector3 direction = (PlayerObject.position - transform.position).normalized;
             direction.z = 0; // Ensure movement is on the XZ plane only
 
             // Gradually increase the current speed using acceleration
@@ -29,7 +29,7 @@ public class FollowerMovement : MonoBehaviour
             currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
 
             // Move towards the player at the accelerated speed
-            transform.position -= direction * currentSpeed * Time.deltaTime;
+            transform.position += direction * currentSpeed * Time.deltaTime;
 
             //Debug.Log("distance greater than 3f and player.x > my.x");
 
