@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    public PlayerInventory playerInventory;
+    //public PlayerInventory playerInventory;
     //bool functionCalled = false;
     private void Update()
     {

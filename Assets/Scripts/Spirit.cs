@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class Spirit : MonoBehaviour, IInteractable
 {
-    public float InteractionRange => 1.5f; // Adjust as needed
 
-    private bool isPlayerInRange = false;
 
-    // Reference to the key item type (could be an Item script)
-    public Item requiredItem; // Assign this in the inspector
+    public static bool gotKey = false;
 
-    void Update()
+    [SerializeField] private GameObject containerGameObject;
+
+    public float InteractionRange => 1.5f;
+
+    void Start()
     {
-        if (isPlayerInRange && Input.GetButton("EKey"))
-        {
-            PlayerScript player = FindObjectOfType<PlayerScript>(); // Find the player script instance
-            Interact(player.transform);
-        }
+        gameObject.SetActive(true);
+        containerGameObject.SetActive(false);
+    }
+    public void ReceiveItem()
+    {
+        gotKey = true;
+        //Debug.Log($"Spirit received: {item}");
+        // You can add custom logic here, like a response or a reward
+    }
+
+    public void speakToSpirit()
+    {
+        containerGameObject.SetActive(true);
+    }
+
+    public void Interact(Transform interactorTransform)
+    {
+        ReceiveItem();
+        speakToSpirit();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,8 +72,4 @@ public class Spirit : MonoBehaviour, IInteractable
         return "Talk to Spirit";
     }
 
-    public Transform GetTransform()
-    {
-        return transform;
-    }
 }

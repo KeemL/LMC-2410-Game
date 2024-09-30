@@ -5,7 +5,9 @@ public class PlayerInventory : MonoBehaviour
 {
     private List<Item> items = new List<Item>();
 
-    public void AddItem(Item item)
+    public valueSaver valueSaver;
+
+    public bool HasItem()
     {
         items.Add(item);
     }
