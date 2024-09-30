@@ -8,7 +8,7 @@ public class Item : MonoBehaviour, IInteractable
 
     private bool isPlayerInRange = false;
 
-    private bool hasItem = false;
+    //private bool hasItem = false;
 
     //public valueSaver script;
 
@@ -16,8 +16,6 @@ public class Item : MonoBehaviour, IInteractable
     {
 
         gameObject.SetActive(true);
-        Debug.Log("Actively");
-
 
     }
 
@@ -51,7 +49,7 @@ public class Item : MonoBehaviour, IInteractable
     {
         // Perform Item collection logic here
         gameObject.SetActive(false); // Disable the Item GameObject
-        hasItem = true;
+        //hasItem = true;
         Debug.Log("collected Item");
     }
 
