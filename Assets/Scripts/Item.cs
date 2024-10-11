@@ -8,6 +8,10 @@ public class Item : MonoBehaviour, IInteractable
 
     private bool isPlayerInRange = false;
 
+    // [SerializeField] private AudioClip audioClip;
+
+    [SerializeField] private AudioSource audioSource;
+
 
     void Start()
     {
@@ -46,8 +50,10 @@ public class Item : MonoBehaviour, IInteractable
         // Perform Item collection logic here
         gameObject.SetActive(false); // Disable the Item GameObject
         valueSaver.hasKey = true;
+        playSound();
         //hasItem = true;
         Debug.Log("collected Item");
+
     }
 
     public void Interact(Transform interactorTransform)
@@ -64,6 +70,16 @@ public class Item : MonoBehaviour, IInteractable
     public Transform GetTransform()
     {
         return transform;
+    }
+
+    public void playSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Play();
+            Debug.Log("played");
+            // audioSource.PlayOneShot(audioClip);
+        }
     }
 
 
