@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded = true;
 
+    public Animator animator;
+
     public Collider followerCollider;
 
     void Start()
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         Collider playerCollider = GetComponent<Collider>();
         Physics.IgnoreCollision(playerCollider, followerCollider);
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -34,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;  // Set grounded to false after jumping
         }
+
+
     }
 
     // Check if the player is on the ground
