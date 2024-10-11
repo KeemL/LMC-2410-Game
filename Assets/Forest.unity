@@ -2445,8 +2445,9 @@ Animation:
   m_GameObject: {fileID: 1188456004}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: a7105a1112a1d1c4d9901f77c4a38a85, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: a7105a1112a1d1c4d9901f77c4a38a85, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -2463,6 +2464,7 @@ GameObject:
   - component: {fileID: 1244111929}
   - component: {fileID: 1244111928}
   - component: {fileID: 1244111927}
+  - component: {fileID: 1244111931}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Ground
@@ -2548,6 +2550,22 @@ Transform:
   m_Father: {fileID: 210197057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1244111931
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244111926}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1f929bdf50eb3bb4bbc2eaec9b589626, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1f929bdf50eb3bb4bbc2eaec9b589626, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1296397224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d164ec7d1d46f43f8b3ec116baf34622, type: 3}
