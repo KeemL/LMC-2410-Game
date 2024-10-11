@@ -33,7 +33,7 @@ public class Spirit02 : MonoBehaviour, IInteractable
     {
         ReceiveItem();
         speakToSpirit();
-        inventory.UpdateInventory(2);
+
     }
 
     public Transform GetTransform()

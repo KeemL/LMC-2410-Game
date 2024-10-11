@@ -17,6 +17,10 @@ public class PlayerScript : MonoBehaviour
             {
                 interactable.Interact(transform);
             }
+            else
+            {
+                return;
+            }
         }
     }
 
