@@ -9,7 +9,7 @@ public class Spirit : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject containerGameObject;
 
-    public float InteractionRange => 1.5f;
+    public float InteractionRange => 0.5f;
 
     void Start()
     {

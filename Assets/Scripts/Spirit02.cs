@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spirit02 : MonoBehaviour
+public class Spirit02 : MonoBehaviour, IInteractable
 {
     public static bool gotBear = false;
 
     [SerializeField] private GameObject containerGameObject;
 
-    public float InteractionRange => 1.5f;
+    public float InteractionRange => 0.5f;
+
+    public InventorySCRIPT inventory;
 
     void Start()
     {
         gameObject.SetActive(true);
-        containerGameObject.SetActive(true);
+        containerGameObject.SetActive(false);
     }
     public void ReceiveItem()
     {
@@ -31,6 +33,7 @@ public class Spirit02 : MonoBehaviour
     {
         ReceiveItem();
         speakToSpirit();
+        inventory.UpdateInventory(2);
     }
 
     public Transform GetTransform()
